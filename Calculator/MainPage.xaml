@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage"
+             BackgroundColor="Black"
+             Title="Kalkulator">
+
+    <ContentPage.Resources>
+        <Style x:Key="CalculatorButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="HeightRequest" Value="70"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <!-- Wyświetlacz -->
+        <Label x:Name="Display"
+               Text="0"
+               FontSize="48"
+               HorizontalTextAlignment="End"
+               VerticalOptions="EndAndExpand"
+               BackgroundColor="#eeeeee"
+               TextColor="Black"
+               HeightRequest="100"
+               Padding="10"/>
+
+        <!-- Siatka przycisków -->
+        <Grid RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Wiersz C / dzielenie -->
+            <Button Text="C" Grid.Row="0" Grid.Column="0" Clicked="OnClearClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="÷" Grid.Row="0" Grid.Column="3" Clicked="OnOperatorClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+
+            <!-- Wiersze cyfr i operatorów -->
+            <Button Text="7" Grid.Row="1" Grid.Column="0" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="8" Grid.Row="1" Grid.Column="1" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="9" Grid.Row="1" Grid.Column="2" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="×" Grid.Row="1" Grid.Column="3" Clicked="OnOperatorClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+
+            <Button Text="4" Grid.Row="2" Grid.Column="0" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="5" Grid.Row="2" Grid.Column="1" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="6" Grid.Row="2" Grid.Column="2" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="-" Grid.Row="2" Grid.Column="3" Clicked="OnOperatorClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+
+            <Button Text="1" Grid.Row="3" Grid.Column="0" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="2" Grid.Row="3" Grid.Column="1" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="3" Grid.Row="3" Grid.Column="2" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="+" Grid.Row="3" Grid.Column="3" Clicked="OnOperatorClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+
+            <Button Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Clicked="OnNumberClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+            <Button Text="=" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Clicked="OnEqualClicked" Style="{StaticResource CalculatorButtonStyle}"/>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
